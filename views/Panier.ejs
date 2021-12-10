@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>FormationList</title>
+</head>
+<body>
+    <h1>IT Academy</h1>
+
+
+    <a href="/formation/finalise" class="button">Finaliser l'insciption</a>
+    <a href="/" class=button>Retourner au catalogue</a>
+
+    <h2>Panier</h2>
+
+      <table>
+        <tbody>
+                    <td  class = 'table-group'>Id</td>
+                    <td  class = 'table-group'>Nom</td>
+                    <td  class = 'table-group'>Prix</td>
+                    <td  class = 'table-group'>Début</td>
+                    <td  class = 'table-group'>Fin</td>
+                    <td  class = 'table-group'></td>
+            <% for( let i = 0; i < panier.length; i++ ) { %>
+                <tr>
+                    <td class = 'table-group'> <%= panier[i].id %> </td>
+                    <td class = 'table-group'> <%= panier[i].nom %> </td>
+                    <td class = 'table-group'> <%= panier[i].prix %> </td>
+                    <td class = 'table-group'> <%= panier[i].debut %> </td>
+                    <td class = 'table-group'> <%= panier[i].fin %> </td>
+                    <td class = 'table-groupforbutton'><a href="/formation/remove/<%= i %>">Supprimer</a></td>
+                </tr>
+            <% } %>
+            
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>FormationList</title>
+</head>
+<body>
+    <h1>IT Academy</h1>
+
+    
+
+    <a href="formation/panier" class="button">Voir le panier</a>
+    <a href="formation/connecter" class=button>Se connecter</a>
+
+    <%=connected %> 
+
+    <h2>Formation disponible</h2>
+
+      <table>
+        <tbody>
+                    <td  class = 'table-group'>Id</td>
+                    <td  class = 'table-group'>Nom</td>
+                    <td  class = 'table-group'>Prix</td>
+                    <td  class = 'table-group'>Début</td>
+                    <td  class = 'table-group'>Fin</td>
+                    <td  class = 'table-group'></td>
+            <% for( let i = 0; i < formations.length; i++ ) { %>
+                <tr>
+                    <td class = 'table-group'> <%= formations[i].id %> </td>
+                    <td class = 'table-group'> <%= formations[i].nom %> </td>
+                    <td class = 'table-group'> <%= formations[i].prix %> </td>
+                    <td class = 'table-group'> <%= formations[i].debut %> </td>
+                    <td class = 'table-group'> <%= formations[i].fin %> </td>
+                    <td class = 'table-groupforbutton'><a href="/formation/add/<%= i %>">S'inscrire</a></td>
+                </tr>
+            <% } %>
+            
+        </tbody>
+    </table>
+
+</body>
+</html>
