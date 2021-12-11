@@ -79,22 +79,7 @@ exports.formationLogin= function(req, res){
 
 exports.formationLoginIfpanier= function(req, res){
     req.session.username = req.body.username;
-    panier.forEach(element => {
-        let ajouter = {"idachat": element.id, "username":req.session.username}
-        connection.query("INSERT INTO final2 SET ?", ajouter, function(err,result){
-            if (err) console.log(err)
-           
-
-        });
-
-    })
-    let ajouterrien = {"idachat": "", "username":""}
-        connection.query("INSERT INTO final2 SET ?", ajouterrien, function(err,result){
-            if (err) console.log(err)
-           
-
-        });
-    res.send("Merci pour votre achat ! " + req.session.username);
+    res.redirect("/formation/final")
 }
 
 
@@ -107,22 +92,7 @@ exports.formationFinalise = function(req, res){
         res.redirect("/formation/connecterifpanier")
     }
     else{
-        panier.forEach(element => {
-            let ajouter = {"idachat": element.id, "username":req.session.username}
-            connection.query("INSERT INTO final2 SET ?", ajouter, function(err,result){
-                if (err) console.log(err)
-               
-
-            });
-
-        })
-        let ajouterrien = {"idachat": "", "username":""}
-            connection.query("INSERT INTO final2 SET ?", ajouterrien, function(err,result){
-                if (err) console.log(err)
-               
-
-            });
-        res.send("Merci pour votre achat ! " + req.session.username);
+        res.redirect("/formation/final")
     }
     
     
@@ -130,3 +100,12 @@ exports.formationFinalise = function(req, res){
 
 
 
+exports.formationFinal = function(req, res){
+    panier.forEach(element => {
+        let ajouter = {"idachat": element.id, "username":req.session.username}
+        connection.query("INSERT INTO final2 SET ?", ajouter, function(err,result){
+            if (err) console.log(err)
+        });
+    })
+    res.send("Merci pour votre achat ! " + req.session.username);
+}

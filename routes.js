@@ -31,6 +31,10 @@ router.get('/formation/connecterifpanier', formationController.formationConnecte
 
 router.post('/loginifpanier', formationController.formationLoginIfpanier)
 
+router.get("/formation/final", formationController.formationFinal)
+
+
+
 module.exports = router;
 
 // -server.js trivial on déclare juste les routes en gros copier d'ici
