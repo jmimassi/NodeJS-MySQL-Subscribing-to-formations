@@ -101,11 +101,15 @@ exports.formationFinalise = function(req, res){
 
 
 exports.formationFinal = function(req, res){
+    let ajouter = {"idachat": "", "username":req.session.username}
+    let listedid = []
     panier.forEach(element => {
-        let ajouter = {"idachat": element.id, "username":req.session.username}
+        listedid.push(element.id)
+    });
+        ajouter["idachat"] = listedid.toString();
+        console.log(ajouter);
         connection.query("INSERT INTO final2 SET ?", ajouter, function(err,result){
             if (err) console.log(err)
         });
-    })
     res.send("Merci pour votre achat ! " + req.session.username);
 }
