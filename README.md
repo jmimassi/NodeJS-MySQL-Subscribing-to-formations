@@ -1,1 +1,1 @@
-The goal of this projet is to show the utilty of NodeJS used in a MVC model and with the framework ExpressJS to create a website where a user can register and make some purchases, all these purchases are registered in a MySQL Database
+The goal of this projet is to show the utilty of NodeJS used in a MVC model and with the framework ExpressJS to create a website where a user can register and make some purchases, all these purchases are registered in a MySQL database.
